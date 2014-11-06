@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 
-package uk.ac.aber.dcs.bpt.cs21120.assignment1;
 
 /**
  * Exception thrown if trying to get a Match when the competition is over
