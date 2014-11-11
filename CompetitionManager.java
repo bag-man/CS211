@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 /**
  * Main program to run a competition
@@ -46,21 +47,23 @@ public class CompetitionManager {
                     if (in.hasNextInt()) {
                         notValidInput = false;
                     } else if (in.hasNext()) {
-                        String str = in.next();
-                        System.out.println(str + " is not a valid input, please enter a number");
+                        //String str = in.next();
+                        //System.out.println(str + " is not a valid input, please enter a number");
                     }
                 }
-                p1score = in.nextInt();
+                //p1score = in.nextInt();
+                p1score = score();
                 notValidInput = true;
                 while (notValidInput) {
                     if (in.hasNextInt()) {
                         notValidInput = false;
                     } else if (in.hasNext()) {
-                        String str = in.next();
-                        System.out.println(str + " is not a valid input, please enter a number");
+                        //String str = in.next();
+                        //System.out.println(str + " is not a valid input, please enter a number");
                     }
                 }
-                p2score = in.nextInt();
+                //p2score = in.nextInt();
+                p2score = score();
                 if (p1score == p2score) {
                     System.out.println("We need a result, not a draw!  Please have a rematch!");
                 } else {
@@ -82,5 +85,14 @@ public class CompetitionManager {
             players.add(sc.nextLine());
         }
         return players;
+
+    }
+
+    public static int score() {
+
+	Random rand = new Random();
+
+	return rand.nextInt((9 - 0) + 1) + 0;
+
     }
 }
