@@ -80,7 +80,7 @@ public class CompetitionManager {
             manager.setMatchWinner(p1score > p2score);
         }
    
-        System.out.println("Winner is: " + manager.getPosition(0));
+        System.out.println("\nWinner is: " + manager.getPosition(0));
         System.out.println("Runner up is: " + manager.getPosition(1));
     }
     

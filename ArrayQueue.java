@@ -20,6 +20,7 @@ public class ArrayQueue {
     if(tail == queue.length) {
       tail = 0;
     }
+    printQueue();
   } 
 
 
@@ -62,9 +63,13 @@ public class ArrayQueue {
  
   public String position(int n) {
 
-    System.out.println(Arrays.toString(queue));
-    
     return queue[n];
+
+  }
+
+  private void printQueue() {
+
+    System.out.println(Arrays.toString(queue));
 
   }
 
