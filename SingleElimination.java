@@ -50,11 +50,11 @@ public class SingleElimination implements IManager {
 
   public String getPosition(int n) {
 
-    /*if(hasNextMatch() || n > 0) {
+    if(hasNextMatch() || n > 0) {
       return null;
     } else {
-    }*/
       return queue.position(n);
+    }
 
   }
 
