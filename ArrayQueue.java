@@ -63,7 +63,8 @@ public class ArrayQueue {
  
   public String position(int n) {
 
-    return queue[n];
+    head += n;
+    return queue[head];
 
   }
 
