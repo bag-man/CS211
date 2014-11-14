@@ -37,38 +37,45 @@ public class CompetitionManager {
         manager.setPlayers(competitors);
         while(manager.hasNextMatch()) {
             Match match = manager.nextMatch();
-            System.out.println("Player 1: " + match.getPlayer1());
-            System.out.println("Player 2: " + match.getPlayer2());
+            //System.out.println("Player 1: " + match.getPlayer1());
+            //System.out.println("Player 2: " + match.getPlayer2());
             boolean notValidInput = true;
             boolean draw=true;
             int p1score=0, p2score=0;
             while (draw) {
+	    /*
                 while (notValidInput) {
                     if (in.hasNextInt()) {
                         notValidInput = false;
                     } else if (in.hasNext()) {
-                        //String str = in.next();
-                        //System.out.println(str + " is not a valid input, please enter a number");
+                        String str = in.next();
+                        System.out.println(str + " is not a valid input, please enter a number");
                     }
-                }
-                //p1score = in.nextInt();
-                p1score = score();
+                } 
+                p1score = in.nextInt();
                 notValidInput = true;
                 while (notValidInput) {
                     if (in.hasNextInt()) {
                         notValidInput = false;
                     } else if (in.hasNext()) {
-                        //String str = in.next();
-                        //System.out.println(str + " is not a valid input, please enter a number");
+                        String str = in.next();
+                        System.out.println(str + " is not a valid input, please enter a number");
                     }
-                }
-                //p2score = in.nextInt();
-                p2score = score();
+                } 
+                p2score = in.nextInt();
                 if (p1score == p2score) {
                     System.out.println("We need a result, not a draw!  Please have a rematch!");
                 } else {
                     draw = false;
                 }
+	    */
+	      p1score = score();
+	      p2score = score();
+	      if (p1score != p2score) {
+		System.out.println("\n" + match.getPlayer1() + ": " + p1score);
+		System.out.println(match.getPlayer2() + ": " + p2score);
+		draw = false;
+	      }
             }
             manager.setMatchWinner(p1score > p2score);
         }

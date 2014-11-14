@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ArrayQueue {
   String[] queue;
   int head, tail, length;
@@ -60,6 +62,8 @@ public class ArrayQueue {
  
   public String position(int n) {
 
+    System.out.println(Arrays.toString(queue));
+    
     return queue[n];
 
   }
