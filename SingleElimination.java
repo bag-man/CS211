@@ -18,7 +18,7 @@ public class SingleElimination implements IManager {
 
   public boolean hasNextMatch() {
 
-    if(queue.length() == 2) {
+    if(queue.length() == 1) {
       return false;
     } else {
       return true;
