@@ -8,8 +8,8 @@ public class DoubleElimination implements IManager {
 
   public void setPlayers(ArrayList<String> teams) {
 
-    winQueue = new ArrayQueue(teams.size());
-    lossQueue = new ArrayQueue(teams.size());
+    winQueue = new ArrayQueue(teams.size(), "winners");
+    lossQueue = new ArrayQueue(teams.size(), "loosers");
 
     for(String team: teams) {
       winQueue.enQ(team);
@@ -19,7 +19,7 @@ public class DoubleElimination implements IManager {
 
   public boolean hasNextMatch() {
 
-    if(winQueue.length() > lossQueue.length()) {
+    if(winQueue.length() != 1) {
       return true;
     } else {
       return false;
@@ -30,13 +30,21 @@ public class DoubleElimination implements IManager {
   public Match nextMatch() throws NoNextMatchException {
 
     if(hasNextMatch() == true){
-      team1 = winQueue.deQ();
-      team2 = winQueue.deQ();
-      return new Match(team1, team2);
-    } else{
-      team1 = lossQueue.deQ();
-      team2 = lossQueue.deQ();
-      return new Match(team1, team2);
+      if(winQueue.length() > lossQueue.length()) {
+	team1 = winQueue.deQ();
+	team2 = winQueue.deQ();
+	return new Match(team1, team2);
+      } else if((winQueue.length() == 1) && (lossQueue.length() == 1)){
+	team1 = winQueue.deQ();
+	team2 = lossQueue.deQ();
+	return new Match(team1, team2);
+      } else {
+	team1 = lossQueue.deQ();
+	team2 = lossQueue.deQ();
+	return new Match(team1, team2);
+      }
+    } else {
+      throw new NoNextMatchException("Game Over.");
     }
 
   }
@@ -44,11 +52,10 @@ public class DoubleElimination implements IManager {
   public void setMatchWinner(boolean team) {
     
     if(team) {
-      winQueue.enQ(team1);
-      lossQueue.enQ(team2);
+      winQueue.enQ(team1); // Winner of win Queue
+      lossQueue.enQ(team2); // Looser of win Queue
     } else {
-      lossQueue.enQ(team1);
-      //lossQueue.deQ();
+      lossQueue.enQ(team1); // Winner of loss Queue
     }
 
   }

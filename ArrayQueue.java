@@ -3,10 +3,12 @@ import java.util.Arrays;
 public class ArrayQueue {
   String[] queue;
   int head, tail, length;
+  String name;
 
-  public ArrayQueue(int startsize) {
+  public ArrayQueue(int startsize, String n) {
     queue = new String[startsize];
     head = tail = length = 0;
+    name = n;
   }
 
   public void enQ(String s) {
@@ -71,7 +73,7 @@ public class ArrayQueue {
 
   private void printQueue() {
 
-    System.out.println(Arrays.toString(queue));
+    System.out.println(name + " " + Arrays.toString(queue));
 
   }
 

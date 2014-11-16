@@ -8,7 +8,7 @@ public class SingleElimination implements IManager {
 
   public void setPlayers(ArrayList<String> teams) {
 
-    queue = new ArrayQueue(teams.size());
+    queue = new ArrayQueue(teams.size(),"Winners");
     for(String team: teams) {
       queue.enQ(team);
     }
