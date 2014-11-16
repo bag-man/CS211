@@ -47,8 +47,8 @@ public class DoubleElimination implements IManager {
       winQueue.enQ(team1);
       lossQueue.enQ(team2);
     } else {
-      lossQueue.enQ(team2);
-      lossQueue.deQ(team1);
+      lossQueue.enQ(team1);
+      //lossQueue.deQ();
     }
 
   }
