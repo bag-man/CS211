@@ -36,6 +36,7 @@ public class ArrayQueue {
     if(head == queue.length) {
       head=0;
     }
+
     length--;
     return s;
   } 

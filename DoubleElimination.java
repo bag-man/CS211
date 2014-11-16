@@ -6,7 +6,6 @@ public class DoubleElimination implements IManager {
   private String team1;
   private String team2;
 
-
   public void setPlayers(ArrayList<String> teams) {
 
     winQueue = new ArrayQueue(teams.size());
@@ -49,7 +48,7 @@ public class DoubleElimination implements IManager {
       lossQueue.enQ(team2);
     } else {
       lossQueue.enQ(team2);
-      lossQueue.enQ(team1);
+      lossQueue.deQ(team1);
     }
 
   }

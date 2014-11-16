@@ -6,7 +6,6 @@ public class SingleElimination implements IManager {
   private String team1;
   private String team2;
 
-
   public void setPlayers(ArrayList<String> teams) {
 
     queue = new ArrayQueue(teams.size());
