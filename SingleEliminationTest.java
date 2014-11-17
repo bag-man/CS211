@@ -2,28 +2,30 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.Before;
 import java.util.ArrayList;
+import java.io.IOException;
 
 public class SingleEliminationTest {
 
-  private SingleElimination manager;
+  private IManager manager;
   private ArrayList<String> teams;
 
   @Before
   public void init() {
 
-    teams = CompetitionManager.readPlayers("/root/CS211/teams.txt");
-    System.out.print(teams.size());
-    manager = new SingleElimination();
+    try {
+      teams = CompetitionManager.readPlayers("teams.txt");
+    } catch (IOException e) {
+       System.out.println("Error: " + e);
+    }
+    //manager = new SingleElimination();
+    IManager manager = IManagerFactory.getManager("SingleElimination");
+    manager.setPlayers(teams);
 
   }
 
-/*
   @Test
-  public void testWon() { 
-    model.tryWord("ahoy");
-    assertEquals("Game has not been won.", model.won(), true);
+  public void hasNextMatchTest() { 
+    assertEquals("Is there another match", manager.hasNextMatch(), true);
   }
-*/
 
 }
-
