@@ -2,10 +2,11 @@ import java.util.Arrays;
 
 public class ArrayQueue {
   String[] queue;
-  int head, tail, length;
+  int head, tail, length, startsize;
   String name;
 
-  public ArrayQueue(int startsize, String n) {
+  public ArrayQueue(int s, String n) {
+    startsize = s;
     queue = new String[startsize];
     head = tail = length = 0;
     name = n;
@@ -22,7 +23,7 @@ public class ArrayQueue {
     if(tail == queue.length) {
       tail = 0;
     }
-    printQueue();
+    //printQueue();
   } 
 
 
@@ -67,11 +68,13 @@ public class ArrayQueue {
   public String position(int n) {
 
     head += n;
+    if(head > startsize - 1)
+      head -= startsize;
     return queue[head];
 
   }
 
-  private void printQueue() {
+  public void printQueue() {
 
     System.out.println(name + " " + Arrays.toString(queue));
 
