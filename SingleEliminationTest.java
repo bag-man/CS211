@@ -3,11 +3,13 @@ import org.junit.Test;
 import org.junit.Before;
 import java.util.ArrayList;
 import java.io.IOException;
+import java.lang.reflect.Field;
 
 public class SingleEliminationTest {
 
   private IManager manager;
   private ArrayList<String> teams;
+  private ArrayQueue queue;
 
   @Before
   public void init() {
@@ -17,9 +19,17 @@ public class SingleEliminationTest {
     } catch (IOException e) {
        System.out.println("Error: " + e);
     }
-    //manager = new SingleElimination();
+
     manager = IManagerFactory.getManager("SingleElimination");
     manager.setPlayers(teams);
+
+    try {
+      Field f = manager.getClass().getDeclaredField("queue"); //NoSuchFieldException
+      f.setAccessible(true);
+      queue = (ArrayQueue) f.get(manager); 
+    } catch(Exception e) {
+      System.out.println("Reflection failed!");
+    }
 
   }
 
