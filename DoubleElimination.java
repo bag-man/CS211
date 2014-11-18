@@ -9,8 +9,8 @@ public class DoubleElimination implements IManager {
 
   public void setPlayers(ArrayList<String> teams) {
 
-    winQueue = new ArrayQueue(teams.size(), "winners");
-    lossQueue = new ArrayQueue(teams.size(), "loosers");
+    winQueue = new ArrayQueue(teams.size());
+    lossQueue = new ArrayQueue(teams.size());
 
     for(String team: teams) {
       winQueue.enQ(team);

@@ -4,6 +4,7 @@ import org.junit.Before;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.Arrays;
 
 public class SingleEliminationTest {
 
@@ -24,13 +25,19 @@ public class SingleEliminationTest {
     manager.setPlayers(teams);
 
     try {
-      Field f = manager.getClass().getDeclaredField("queue"); //NoSuchFieldException
+      Field f = manager.getClass().getDeclaredField("queue"); 
       f.setAccessible(true);
       queue = (ArrayQueue) f.get(manager); 
     } catch(Exception e) {
-      System.out.println("Reflection failed!");
+      System.out.println("Error: " + e);
     }
 
+  }
+
+  @Test
+  public void setPlayersTest() {
+    assertEquals("Queues are not equal", queue.front(), teams.get(0));
+    assertEquals("Queues are not equal", queue.length(), teams.size());
   }
 
   @Test

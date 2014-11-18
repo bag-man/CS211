@@ -5,11 +5,10 @@ public class ArrayQueue {
   int head, tail, length, startsize;
   String name;
 
-  public ArrayQueue(int s, String n) {
+  public ArrayQueue(int s) {
     startsize = s;
     queue = new String[startsize];
     head = tail = length = 0;
-    name = n;
   }
 
   public void enQ(String s) {
@@ -76,7 +75,7 @@ public class ArrayQueue {
 
   public void printQueue() {
 
-    System.out.println(name + " " + Arrays.toString(queue));
+    System.out.println(Arrays.toString(queue));
 
   }
 
