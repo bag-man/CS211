@@ -55,4 +55,19 @@ public class SingleEliminationTest {
     assertEquals("Second players don't match", testMatch.getPlayer2(), genMatch.getPlayer2());
   }
 
+  @Test
+  public void setMatchWinnerTest() {
+    Match genMatch = manager.nextMatch();
+    manager.setMatchWinner(true);
+    assertEquals("Wrong team entered back in queue", genMatch.getPlayer1(), queue.position(6));
+  }
+
+  @Test
+  public void getPositionTest() {
+    while(manager.hasNextMatch()) {
+      queue.deQ();
+    }
+    assertEquals("Wrong team found", manager.getPosition(0), queue.position(0));
+  }
+
 }

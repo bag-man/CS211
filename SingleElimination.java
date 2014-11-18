@@ -57,9 +57,4 @@ public class SingleElimination implements IManager {
 
   }
 
-  public void test() {
-    System.out.println("Working!");
-  }
-
-
 }
