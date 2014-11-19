@@ -1,3 +1,4 @@
+package uk.ac.aber.dcs.owg1.cs21120.assignment1;
 import java.util.ArrayList;
 
 public class SingleElimination implements IManager {
