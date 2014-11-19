@@ -37,13 +37,13 @@ public class CompetitionManager {
         manager.setPlayers(competitors);
         while(manager.hasNextMatch()) {
             Match match = manager.nextMatch();
-            //System.out.println("Player 1: " + match.getPlayer1());
-            //System.out.println("Player 2: " + match.getPlayer2());
+            //System.out.println("Player 1: " + match.getPlayer1()); 
+            //System.out.println("Player 2: " + match.getPlayer2());  
             boolean notValidInput = true;
             boolean draw=true;
             int p1score=0, p2score=0;
             while (draw) {
-	    /*
+	     /* 
                 while (notValidInput) {
                     if (in.hasNextInt()) {
                         notValidInput = false;
@@ -68,7 +68,7 @@ public class CompetitionManager {
                 } else {
                     draw = false;
                 }
-	    */
+	     */
 	      p1score = score();
 	      p2score = score();
 	      if (p1score != p2score) {
