@@ -59,7 +59,7 @@ public class SingleEliminationTest {
   public void setMatchWinnerTest() {
     Match genMatch = manager.nextMatch();
     manager.setMatchWinner(true);
-    assertEquals("Wrong team entered back in queue", genMatch.getPlayer1(), queue.position(6));
+    assertEquals("Wrong team entered back in queue", genMatch.getPlayer1(), queue.position(queue.length() - 1));
   }
 
   @Test

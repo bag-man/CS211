@@ -62,7 +62,7 @@ public class DoubleEliminationTest {
   public void setMatchWinnerTest() {
     Match genMatch = manager.nextMatch();
     manager.setMatchWinner(true);
-    assertEquals("Wrong team entered back in queue", genMatch.getPlayer1(), winQ.position(6));
+    assertEquals("Wrong team entered back in queue", genMatch.getPlayer1(), winQ.position(winQ.length() - 1));
     assertEquals("Wrong team entered back in queue", genMatch.getPlayer2(), lossQ.position(0));
   }
 
@@ -73,7 +73,7 @@ public class DoubleEliminationTest {
       manager.setMatchWinner(true);
     }
     assertEquals("Wrong team found", manager.getPosition(0), winQ.position(0));
-    assertEquals("Wrong team found", manager.getPosition(7), winQ.position(7));
+    assertEquals("Wrong team found, try with 8 teams in teams.txt", manager.getPosition(7), winQ.position(7));
   }
 
 }
