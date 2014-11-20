@@ -18,12 +18,12 @@ public class SingleEliminationTest {
   public void init() {
 
     try {
-      teams = CompetitionManager.readPlayers("uk/aber/ac/uk/dcs/owg1/cs21120/assignment1/teams.txt");
+      teams = CompetitionManager.readPlayers("uk/ac/aber/dcs/owg1/cs21120/assignment1/teams.txt");
     } catch (IOException e) {
        System.out.println("Error: " + e);
     }
 
-    manager = IManagerFactory.getManager("uk.aber.ac.uk.dcs.owg1.cs21120.assignment1.SingleElimination");
+    manager = IManagerFactory.getManager("uk.ac.aber.dcs.owg1.cs21120.assignment1.SingleElimination");
     manager.setPlayers(teams);
 
     try {
